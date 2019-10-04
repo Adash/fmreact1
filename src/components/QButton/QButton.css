@@ -1,0 +1,19 @@
+.q_button_basic {
+  margin-top: 5px;
+  font-size: 1em;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(18, 104, 1);
+  color: rgb(207, 224, 51);
+  cursor: pointer;
+}
+
+.q_button_basic:hover {
+  background-color: rgb(17, 92, 2);
+  color: rgb(224, 243, 54);
+}
+.q_button_basic:active {
+  background-color: rgb(21, 116, 2);
+  color: rgb(185, 201, 45);
+}
