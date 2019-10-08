@@ -1,7 +1,6 @@
 .animals_list {
   flex-basis: 50%;
-  background-color: #444b58;
-  color: rgb(166, 192, 226);
+
   padding: 5px;
 
   list-style: none;
@@ -11,6 +10,10 @@
 }
 
 .animal {
+  list-style: none;
+  text-decoration: none;
+  background-color: #444b58;
+  color: rgb(166, 192, 226);
   border: 1px solid rgb(30, 117, 38);
   border-radius: 12px;
   margin-bottom: 3%;
