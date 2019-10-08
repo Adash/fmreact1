@@ -7,7 +7,8 @@ class Details extends Component {
     super(props)
 
     this.state = {
-      loading: true
+      loading: true,
+      error: false
     }
   }
 
@@ -22,8 +23,7 @@ class Details extends Component {
           description: animal.description,
           media: animal.photos,
           breed: animal.breeds.primary,
-          loading: false,
-          hero: 'http://placecorgi.com/300/300'
+          loading: false
         })
       })
       .catch(err => this.setState({ error: err }))
@@ -31,23 +31,18 @@ class Details extends Component {
 
   render() {
     if (this.state.loading) {
-      return <h3>Loading...</h3>
+      const { error } = this.state
+      return (
+        <>
+          <h3>Loading...</h3>
+          <p>{error ? JSON.stringify(error) : 'no errors'}</p>
+        </>
+      )
     }
 
-    const {
-      animal,
-      breed,
-      location,
-      description,
-      photos,
-      media,
-      hero,
-      name
-    } = this.state
+    const { animal, breed, location, description, name } = this.state
 
-    if (photos) {
-      this.setState({ hero: photos[0].large })
-    }
+    const photo = this.state.media[0].large
 
     return (
       <div className="details">
@@ -56,7 +51,7 @@ class Details extends Component {
           <h2>{`${animal} — ${breed} — ${location}`}</h2>
           <button>Adopt {name}</button>
           <p>{description}</p>
-          <img src={hero} alt={name} />
+          <img src={photo} alt={name} />
         </div>
       </div>
     )
