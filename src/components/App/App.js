@@ -7,6 +7,24 @@ import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
 import './App.css'
 import Details from '../Details/Details'
 
+function InteractiveElement({
+  AnimalDropdown,
+  BreedDropdown,
+  requestPets,
+  pets
+}) {
+  return (
+    <div className="search_results">
+      <div className="interactive_element">
+        <AnimalDropdown />
+        <BreedDropdown />
+        <QButton action={() => requestPets()}>Click me and see</QButton>
+      </div>
+      <AnimalsListDisplay path="/" animalsList={pets || []} />
+    </div>
+  )
+}
+
 function App() {
   const location = 'Seattle, WA'
   const [breeds, setBreeds] = useState([])
@@ -33,14 +51,15 @@ function App() {
     <div className="App">
       <header className="q_header"></header>
       <div className="main_container">
-        <div className="interactive_element">
-          <AnimalDropdown />
-          <BreedDropdown />
-          <QButton action={() => requestPets()}>Click me and see</QButton>
-          <QButton action={() => console.log(pets)}>Console.log(pets)</QButton>
-        </div>
         <Router>
-          <AnimalsListDisplay path="/" animalsList={pets || []} />
+          <InteractiveElement
+            path="/"
+            AnimalDropdown={AnimalDropdown}
+            BreedDropdown={BreedDropdown}
+            requestPets={requestPets}
+            pets={pets}
+          />
+
           <Details path="details/:id" />
         </Router>
       </div>
