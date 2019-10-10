@@ -1,0 +1,11 @@
+.carousel_container {
+  /* background-color: antiquewhite; */
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel_controls {
+  display: flex;
+  flex-flow: row nowrap;
+}

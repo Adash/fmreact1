@@ -1,4 +1,4 @@
-.q_button_basic {
+.q_button {
   margin-top: 5px;
   font-size: 1em;
   padding: 10px 10px;
@@ -9,11 +9,35 @@
   cursor: pointer;
 }
 
-.q_button_basic:hover {
+.q_button:hover {
   background-color: rgb(17, 92, 2);
   color: rgb(224, 243, 54);
 }
-.q_button_basic:active {
+.q_button:active {
   background-color: rgb(21, 116, 2);
+  color: rgb(185, 201, 45);
+}
+
+.btn_carousel {
+  background-color: #494d53;
+  margin-top: 0px;
+}
+
+.btn_carousel_left {
+  margin-top: 0px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.btn_carousel_right {
+  margin-top: 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.btn_carousel:hover {
+  background-color: #5b6168;
+  color: rgb(224, 243, 54);
+}
+.btn_carousel:active {
+  background-color: #707780;
   color: rgb(185, 201, 45);
 }

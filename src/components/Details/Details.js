@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import pet from '@frontendmasters/pet'
 import './details.css'
+import ImageCarousel from '../ImageCarousel/ImageCarousel'
+import { QButton } from '../QButton/QButton'
 
 class Details extends Component {
   constructor(props) {
@@ -42,16 +44,17 @@ class Details extends Component {
 
     const { animal, breed, location, description, name } = this.state
 
-    const photo = this.state.media[0].large
+    const photos = this.state.media
 
     return (
       <div className="details">
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} — ${breed} — ${location}`}</h2>
-          <button>Adopt {name}</button>
+          <QButton type="q_button">Adopt {name}</QButton>
           <p>{description}</p>
-          <img src={photo} alt={name} />
+          {/* <img src={photos[0].large} alt={name} /> */}
+          <ImageCarousel photos={photos} />
         </div>
       </div>
     )

@@ -18,9 +18,11 @@ function InteractiveElement({
       <div className="interactive_element">
         <AnimalDropdown />
         <BreedDropdown />
-        <QButton action={() => requestPets()}>Click me and see</QButton>
+        <QButton className="q_button" action={() => requestPets()}>
+          Click me and see
+        </QButton>
       </div>
-      <AnimalsListDisplay path="/" animalsList={pets || []} />
+      <AnimalsListDisplay animalsList={pets || []} />
     </div>
   )
 }
