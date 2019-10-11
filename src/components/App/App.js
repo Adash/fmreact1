@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
-import { QButton } from '../QButton/QButton'
+import { Router } from '@reach/router'
 import pet, { ANIMALS } from '@frontendmasters/pet'
+import { QButton } from '../QButton/QButton'
 import useDropdown from '../hooks/useDropdown'
 import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
+import './App.css'
+import Details from '../Details/Details'
 
-function Display(props) {
+function InteractiveElement({
+  AnimalDropdown,
+  BreedDropdown,
+  requestPets,
+  pets
+}) {
   return (
-    <div className="q_display">
-      <p>{props.text}</p>
+    <div className="search_results">
+      <div className="interactive_element">
+        <AnimalDropdown />
+        <BreedDropdown />
+        <QButton className="q_button" action={() => requestPets()}>
+          Click me and see
+        </QButton>
+      </div>
+      <AnimalsListDisplay animalsList={pets || []} />
     </div>
   )
 }
 
 function App() {
   const location = 'Seattle, WA'
-  const [text, setText] = useState('')
   const [breeds, setBreeds] = useState([])
   const [animal, AnimalDropdown] = useDropdown('Animal', 'dog', ANIMALS)
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds)
@@ -40,20 +53,17 @@ function App() {
     <div className="App">
       <header className="q_header"></header>
       <div className="main_container">
-        <div className="interactive_element">
-          <div className="i_e_text">
-            <p>This is textfield saying something very interesting</p>
-            <p>{text}</p>
-          </div>
-          <Display text={text} />
-          <AnimalDropdown />
-          <BreedDropdown />
-          <QButton action={() => requestPets()}>Click me and see</QButton>
-          <QButton action={() => console.log(pets)}>Console.log(pets)</QButton>
-        </div>
-        <div className="list_container">
-          <AnimalsListDisplay animalsList={pets || []} />
-        </div>
+        <Router>
+          <InteractiveElement
+            path="/"
+            AnimalDropdown={AnimalDropdown}
+            BreedDropdown={BreedDropdown}
+            requestPets={requestPets}
+            pets={pets}
+          />
+
+          <Details path="details/:id" />
+        </Router>
       </div>
     </div>
   )

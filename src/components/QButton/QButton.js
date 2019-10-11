@@ -1,9 +1,9 @@
 import React from 'react'
-import './QButton.css'
+import './qbutton.css'
 
 export function QButton(props) {
   return (
-    <button onClick={props.action} className="q_button_basic">
+    <button onClick={props.action} className={props.type}>
       {props.children}
     </button>
   )
