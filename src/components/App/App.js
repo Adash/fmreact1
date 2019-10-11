@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Router } from '@reach/router'
+import themeContext from '../ContextProviders/themeContext'
 import pet, { ANIMALS } from '@frontendmasters/pet'
 import { QButton, QLink } from '../QButtons'
 import useDropdown from '../hooks/useDropdown'
@@ -34,6 +35,7 @@ function App() {
   const [animal, AnimalDropdown] = useDropdown('Animal', 'dog', ANIMALS)
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds)
   const [pets, setPets] = useState([])
+  const [theme] = useContext(themeContext)
 
   async function requestPets() {
     const { animals } = await pet.animals({ location, breed, type: animal })
@@ -56,7 +58,7 @@ function App() {
         <QLink path="/">Home</QLink>
         <QLink path="selecttheme">Select Theme</QLink>
       </header>
-      <div className="main_container">
+      <div className="main_container" style={{ backgroundColor: theme.main }}>
         <Router>
           <InteractiveElement
             path="/"

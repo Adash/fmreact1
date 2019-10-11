@@ -4,15 +4,17 @@ import themeContext from '../ContextProviders/themeContext'
 const SelectTheme = () => {
   const [theme, setTheme] = useContext(themeContext)
   return (
-    <div className="theme_selector" style={{ backgroundColor: theme }}>
+    <div className="theme_selector">
       <label htmlFor="theme">
         Theme
         <select
           id="theme"
-          value={theme}
-          onChange={e => setTheme(e.target.value)}
-          onBlur={e => setTheme(e.target.value)}
+          value={theme.main}
+          onChange={e => setTheme({ main: e.target.value })}
+          onBlur={e => setTheme({ main: e.target.value })}
         >
+          <option value="#282c34">Default</option>
+          <option value="white">White</option>
           <option value="peru">Peru</option>
           <option value="darkblue">Dark Blue</option>
           <option value="chartreuse">Chartreuse</option>

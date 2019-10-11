@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker'
 import themeContext from './components/ContextProviders/themeContext'
 
 const AppWrapper = () => {
-  const themeHook = useState('darkblue')
+  const themeHook = useState({ main: '#282c34' })
   return (
     <themeContext.Provider value={themeHook}>
       <App />
