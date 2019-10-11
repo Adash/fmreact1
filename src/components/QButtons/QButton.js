@@ -1,10 +1,12 @@
 import React from 'react'
 import './qbutton.css'
 
-export function QButton(props) {
+const QButton = props => {
   return (
     <button onClick={props.action} className={props.type}>
       {props.children}
     </button>
   )
 }
+
+export default QButton

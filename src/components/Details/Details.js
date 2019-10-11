@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import pet from '@frontendmasters/pet'
 import './details.css'
 import ImageCarousel from '../ImageCarousel/ImageCarousel'
-import { QButton } from '../QButton/QButton'
+import { QButton } from '../QButtons'
 
 class Details extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import './imagecarousel.css'
-import { QButton } from '../QButton/QButton'
+import QButton from '../QButton/QButton'
 
 function ImageCarousel({ photos }) {
   const [position, setPosition] = useState(0)

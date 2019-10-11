@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Router } from '@reach/router'
 import pet, { ANIMALS } from '@frontendmasters/pet'
-import { QButton } from '../QButton/QButton'
+import { QButton, QLink } from '../QButtons'
 import useDropdown from '../hooks/useDropdown'
 import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
 import './App.css'
 import Details from '../Details/Details'
+import SelectTheme from '../SelectTheme/SelectTheme'
 
 function InteractiveElement({
   AnimalDropdown,
@@ -18,7 +19,7 @@ function InteractiveElement({
       <div className="interactive_element">
         <AnimalDropdown />
         <BreedDropdown />
-        <QButton className="q_button" action={() => requestPets()}>
+        <QButton type="q_button" action={() => requestPets()}>
           Click me and see
         </QButton>
       </div>
@@ -51,7 +52,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="q_header"></header>
+      <header className="q_header">
+        <QLink path="/">Home</QLink>
+        <QLink path="selecttheme">Select Theme</QLink>
+      </header>
       <div className="main_container">
         <Router>
           <InteractiveElement
@@ -63,6 +67,7 @@ function App() {
           />
 
           <Details path="details/:id" />
+          <SelectTheme path="selecttheme" />
         </Router>
       </div>
     </div>

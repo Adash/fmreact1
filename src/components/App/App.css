@@ -38,6 +38,11 @@
 .q_header {
   height: 5vh;
   width: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
   background-color: #21242b;
 }
 
