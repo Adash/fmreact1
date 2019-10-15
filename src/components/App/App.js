@@ -8,6 +8,7 @@ import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
 import './App.css'
 import Details from '../Details/Details'
 import SelectTheme from '../SelectTheme/SelectTheme'
+import CssBox from '../CssBox/CssBox'
 
 function InteractiveElement({
   AnimalDropdown,
@@ -57,6 +58,7 @@ function App() {
       <header className="q_header">
         <QLink path="/">Home</QLink>
         <QLink path="selecttheme">Select Theme</QLink>
+        <QLink path="cssbox">CSS Box</QLink>
       </header>
       <div className="main_container" style={{ backgroundColor: theme.main }}>
         <Router>
@@ -70,6 +72,7 @@ function App() {
 
           <Details path="details/:id" />
           <SelectTheme path="selecttheme" />
+          <CssBox path="cssbox" />
         </Router>
       </div>
     </div>
