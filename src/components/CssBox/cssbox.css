@@ -1,11 +1,3 @@
-.css_box_wrapper {
-  background-color: rgb(39, 121, 192);
-}
-
-.css_box_container {
-  background-color: aliceblue;
-}
-
-.css_element {
-  border: 1px solid blueviolet;
+.css_box {
+  border: 1px dotted royalblue;
 }

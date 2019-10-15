@@ -1,0 +1,11 @@
+.box_one_wrapper {
+  background-color: rgb(39, 121, 192);
+}
+
+.box_one_container {
+  background-color: aliceblue;
+}
+
+.box_one_element {
+  border: 1px solid blueviolet;
+}

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import themeContext from '../ContextProviders/themeContext'
 
+import './selecttheme.css'
+
 const SelectTheme = () => {
   const [theme, setTheme] = useContext(themeContext)
   return (

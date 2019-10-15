@@ -2,13 +2,14 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Router } from '@reach/router'
 import themeContext from '../ContextProviders/themeContext'
 import pet, { ANIMALS } from '@frontendmasters/pet'
-import { QButton, QLink } from '../QButtons'
+import { QButton } from '../QButtons'
 import useDropdown from '../hooks/useDropdown'
 import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
 import './App.css'
 import Details from '../Details/Details'
 import SelectTheme from '../SelectTheme/SelectTheme'
 import CssBox from '../CssBox/CssBox'
+import Header from '../Header/Header'
 
 function InteractiveElement({
   AnimalDropdown,
@@ -31,6 +32,7 @@ function InteractiveElement({
 }
 
 function App() {
+  const [cssState, setCssState] = useState('1')
   const location = 'Seattle, WA'
   const [breeds, setBreeds] = useState([])
   const [animal, AnimalDropdown] = useDropdown('Animal', 'dog', ANIMALS)
@@ -55,11 +57,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="q_header">
-        <QLink path="/">Home</QLink>
-        <QLink path="selecttheme">Select Theme</QLink>
-        <QLink path="cssbox">CSS Box</QLink>
-      </header>
+      <Header
+        cssState={cssState}
+        setCssState={setCssState}
+        options={['Box One', 'Box Two']}
+      />
       <div className="main_container" style={{ backgroundColor: theme.main }}>
         <Router>
           <InteractiveElement
@@ -72,7 +74,7 @@ function App() {
 
           <Details path="details/:id" />
           <SelectTheme path="selecttheme" />
-          <CssBox path="cssbox" />
+          <CssBox cssState={cssState} path="cssbox" />
         </Router>
       </div>
     </div>
