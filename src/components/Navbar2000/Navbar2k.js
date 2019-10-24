@@ -25,7 +25,12 @@ const Navbar2k = () => {
       <QLinkImg path="/">
         <span
           css={css`
-            font-size: 25px;
+            font-size: 20px;
+            transition: all 400ms;
+            &:hover {
+              font-size: 30px;
+              transition: all 400ms;
+            }
           `}
           aria-label="logo"
           role="img"
