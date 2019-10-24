@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.6.2",
+    "@emotion/babel-preset-css-prop": "^10.0.22",
+    "@emotion/core": "^10.0.22",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
     "react": "^16.9.0",

@@ -1,10 +1,38 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
+import { QLink, QLinkImg } from '../QButtons'
+import css from '@emotion/css/macro'
 
 const Navbar2k = () => {
   return (
-    <div>
-      <p>navbar</p>
-    </div>
+    <header
+      css={css`
+        padding: 10px;
+        background-color: #333;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      `}
+    >
+      <div>
+        <QLink path="/">Home</QLink>
+        <QLink path="selecttheme">Select Theme</QLink>
+      </div>
+      <QLinkImg path="/">
+        <span
+          css={css`
+            font-size: 25px;
+          `}
+          aria-label="logo"
+          role="img"
+        >
+          🐩
+        </span>
+      </QLinkImg>
+    </header>
   )
 }
 

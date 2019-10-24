@@ -9,7 +9,7 @@ import './App.css'
 import Details from '../Details/Details'
 import SelectTheme from '../SelectTheme/SelectTheme'
 import CssBox from '../CssBox/CssBox'
-import Header from '../Header/Header'
+// import Header from '../Header/Header'
 import Navbar2k from '../Navbar2000/Navbar2k'
 
 function InteractiveElement({
@@ -33,6 +33,7 @@ function InteractiveElement({
 }
 
 function App() {
+  // eslint-disable-next-line
   const [cssState, setCssState] = useState('1')
   const location = 'Seattle, WA'
   const [breeds, setBreeds] = useState([])
@@ -59,11 +60,11 @@ function App() {
   return (
     <div className="App">
       <Navbar2k />
-      <Header
+      {/* <Header
         cssState={cssState}
         setCssState={setCssState}
         options={['Box One', 'Box Two']}
-      />
+      /> */}
       <div className="main_container" style={{ backgroundColor: theme.main }}>
         <Router>
           <InteractiveElement
