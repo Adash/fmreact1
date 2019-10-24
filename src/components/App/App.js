@@ -10,6 +10,7 @@ import Details from '../Details/Details'
 import SelectTheme from '../SelectTheme/SelectTheme'
 import CssBox from '../CssBox/CssBox'
 import Header from '../Header/Header'
+import Navbar2k from '../Navbar2000/Navbar2k'
 
 function InteractiveElement({
   AnimalDropdown,
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar2k />
       <Header
         cssState={cssState}
         setCssState={setCssState}
