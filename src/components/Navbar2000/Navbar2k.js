@@ -2,13 +2,14 @@
 import { jsx } from '@emotion/core'
 import { QLink, QLinkImg } from '../QButtons'
 import css from '@emotion/css/macro'
+import colors from '../SelectTheme/colors'
 
 const Navbar2k = () => {
   return (
     <header
       css={css`
         padding: 10px;
-        background-color: #333;
+        background-color: ${colors.default};
         position: sticky;
         top: 0;
         z-index: 10;
