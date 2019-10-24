@@ -1,8 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { QLink, QLinkImg } from '../QButtons'
-import css from '@emotion/css/macro'
+import { css, keyframes } from '@emotion/core'
 import colors from '../SelectTheme/colors'
+
+const Spin = keyframes`
+  to { 
+    transform: rotate(360deg);
+  }
+`
 
 const Navbar2k = () => {
   return (
@@ -27,9 +33,12 @@ const Navbar2k = () => {
           css={css`
             font-size: 20px;
             transition: all 400ms;
+            display: inline-block;
+
             &:hover {
               font-size: 30px;
               transition: all 400ms;
+              animation: 1s ${Spin} linear infinite;
             }
           `}
           aria-label="logo"
