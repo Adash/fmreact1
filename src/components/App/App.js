@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, lazy, Suspense } from 'react'
 import { Router } from '@reach/router'
 import themeContext from '../ContextProviders/themeContext'
 import pet, { ANIMALS } from '@frontendmasters/pet'
@@ -6,11 +6,12 @@ import { QButton } from '../QButtons'
 import useDropdown from '../hooks/useDropdown'
 import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
 import './App.css'
-import Details from '../Details/Details'
 import SelectTheme from '../SelectTheme/SelectTheme'
 import CssBox from '../CssBox/CssBox'
 // import Header from '../Header/Header'
 import Navbar2k from '../Navbar2000/Navbar2k'
+
+const Details = lazy(() => import('../Details/Details'))
 
 function InteractiveElement({
   AnimalDropdown,
@@ -66,19 +67,21 @@ function App() {
         options={['Box One', 'Box Two']}
       /> */}
       <div className="main_container" style={{ backgroundColor: theme.main }}>
-        <Router>
-          <InteractiveElement
-            path="/"
-            AnimalDropdown={AnimalDropdown}
-            BreedDropdown={BreedDropdown}
-            requestPets={requestPets}
-            pets={pets}
-          />
+        <Suspense fallback={<h3>Loading module...</h3>}>
+          <Router>
+            <InteractiveElement
+              path="/"
+              AnimalDropdown={AnimalDropdown}
+              BreedDropdown={BreedDropdown}
+              requestPets={requestPets}
+              pets={pets}
+            />
 
-          <Details path="details/:id" />
-          <SelectTheme path="selecttheme" />
-          <CssBox cssState={cssState} path="cssbox" />
-        </Router>
+            <Details path="details/:id" />
+            <SelectTheme path="selecttheme" />
+            <CssBox cssState={cssState} path="cssbox" />
+          </Router>
+        </Suspense>
       </div>
     </div>
   )

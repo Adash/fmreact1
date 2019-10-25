@@ -1,11 +1,42 @@
-.box_two_wrapper {
-  background-color: rgb(146, 192, 39);
+.box_two_container {
+  height: 100%;
+  width: 100%;
+  background-color: aliceblue;
+  display: grid;
+  grid-gap: 10px 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
 }
 
-.box_two_container {
-  background-color: rgb(240, 255, 241);
+.box_two_header {
+  color: rgb(223, 223, 223);
+  background-color: purple;
+}
+
+.box_two_content {
+  color: rgb(223, 223, 223);
+  background-color: rgb(17, 88, 129);
+}
+
+.box_two_sidepanel {
+  color: rgb(223, 223, 223);
+  background-color: rgb(54, 121, 57);
+}
+
+.box_two_footer {
+  color: rgb(223, 223, 223);
+  background-color: rgb(148, 148, 148);
 }
 
 .box_two_element {
-  border: 1px solid rgb(43, 226, 119);
+  color: rgb(223, 223, 223);
+  background-color: blueviolet;
+}
+
+/* mobile */
+
+@media (min-width: 1000px) {
+  .box_two_container {
+    background-color: rgb(10, 247, 255);
+  }
 }
