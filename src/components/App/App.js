@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext, lazy, Suspense } from 'react'
 import { Router } from '@reach/router'
 import themeContext from '../ContextProviders/themeContext'
+import useDropdown from '../hooks/useDropdown'
 import pet, { ANIMALS } from '@frontendmasters/pet'
 import { QButton } from '../QButtons'
-import useDropdown from '../hooks/useDropdown'
-import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
-import './App.css'
 import SelectTheme from '../SelectTheme/SelectTheme'
-import CssBox from '../CssBox/CssBox'
-// import Header from '../Header/Header'
+import AnimalsListDisplay from '../Displays/AnimalsListDisplay'
 import Navbar2k from '../Navbar2000/Navbar2k'
+import CssBox from '../CssBox/CssBox'
+import AboutPage from '../About/AboutPage'
+
+import './App.css'
 
 const Details = lazy(() => import('../Details/Details'))
 
@@ -79,6 +80,7 @@ function App() {
 
             <Details path="details/:id" />
             <SelectTheme path="selecttheme" />
+            <AboutPage path="about" />
             <CssBox cssState={cssState} path="cssbox" />
           </Router>
         </Suspense>
